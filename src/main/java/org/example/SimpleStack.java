@@ -1,12 +1,22 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class SimpleStack implements Stack {
+    public ArrayList<Item> ListItem; {
+        ListItem = new ArrayList<Item>();
+    }
+
     /**
      * Tests if this stack is empty
      */
     @Override
     public boolean isEmpty() {
-        return false;
+        if(!ListItem.isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -14,7 +24,7 @@ public class SimpleStack implements Stack {
      */
     @Override
     public int getSize() {
-        return 0;
+        return ListItem.size();
     }
 
     /**
@@ -25,7 +35,7 @@ public class SimpleStack implements Stack {
      */
     @Override
     public void push(Item item) {
-
+        ListItem.add(item);
     }
 
     /**
@@ -33,7 +43,7 @@ public class SimpleStack implements Stack {
      */
     @Override
     public Item peek() throws EmptyStackException {
-        return null;
+        return ListItem.get(0);
     }
 
     /**
@@ -44,6 +54,6 @@ public class SimpleStack implements Stack {
      */
     @Override
     public Item pop() throws EmptyStackException {
-        return null;
+        return ListItem.remove(0);
     }
 }
