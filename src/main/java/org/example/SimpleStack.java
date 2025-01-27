@@ -35,7 +35,7 @@ public class SimpleStack implements Stack {
      */
     @Override
     public void push(Item item) {
-        ListItem.add(item);
+        ListItem.add(0, item);
     }
 
     /**
@@ -54,6 +54,9 @@ public class SimpleStack implements Stack {
      */
     @Override
     public Item pop() throws EmptyStackException {
-        return ListItem.remove(0);
+        if (isEmpty()) {
+            throw new EmptyStackException(); // Lancer l'exception si la pile est vide
+        }
+        return ListItem.remove(0); // Retirer l'élément du sommet de la pile
     }
 }
