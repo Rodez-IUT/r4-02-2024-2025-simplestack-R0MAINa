@@ -59,4 +59,13 @@ class SimpleStackTest {
         assertThrows(EmptyStackException.class, ()->stack.pop(), "EmptyStackException not thrown");
         assertThrows(EmptyStackException.class, stack::pop, "EmptyStackException not thrown");
     }
+
+    @Test
+    @DisplayName("Test limit when trying to peek on a empty stack")
+    public void testPeekOnEmptyStack(){
+        Stack stack = new SimpleStack();
+
+        assertThrows(EmptyStackException.class, ()->stack.peek(), "EmptyStackException not thrown");
+        assertThrows(EmptyStackException.class, stack::peek, "EmptyStackException not thrown");
+    }
 }
